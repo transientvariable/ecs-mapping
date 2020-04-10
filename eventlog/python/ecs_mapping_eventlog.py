@@ -46,9 +46,9 @@ import json
 EVENT_RECORD_FIELD_RAW_EVENT = 'raw_event'
 
 # Global values used for mapping an event record to the Elastic Common Schema (ECS).
-ECS_VERSION = '1.0.4'
+ECS_VERSION       = '1.0.4'
 ECS_EVENT_DATASET = 'eventlog'
-ECS_EVENT_KIND = 'event'
+ECS_EVENT_KIND    = 'event'
 
 
 def _pop(source, key, default=None):
