@@ -38,6 +38,5 @@
   "DestinationPortName": "domain",
   "EventReceivedTime": "2018-09-10 23:57:12.097262Z",
   "SourceModuleName": "eventlog",
-  "FQDN": "localhost.localdomain",
-  "@timestamp": "2018-09-10T23:57:10.991Z"
+  "FQDN": "localhost.localdomain"
 }

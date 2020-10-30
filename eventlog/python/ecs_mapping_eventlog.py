@@ -9,7 +9,6 @@ Example:
         <Extension _json>
             Module     xm_json
             DateFormat YYYY-MM-DD hh:mm:ss.sUTC
-            UnFlatten  TRUE
         </Extension>
 
         <Extension _python>
@@ -20,14 +19,12 @@ Example:
         <Input eventlog>
             Module im_msvistalog
 
-
             ...
 
-
-            # Convert event record to a JSON formatted string and set $raw_event field using the result.
-            to_json();
-
             <Exec>
+                # Convert event record to a JSON formatted string and set $raw_event field using the result.
+                to_json();
+
                 # Call the process_json function from the Python script to process the event record. This will
                 # update the JSON data stored in the $raw_event mapped to the Elastic Common Schema (ECS).
                 python_call('process_json');
@@ -217,5 +214,5 @@ def process_json(event):
     """
     # TODO: Currently only handles event records produced by NXLog. Should be expanded to handle other sources.
     if event.get_field(EVENT_RECORD_FIELD_RAW_EVENT):
-        event_record_json = json.loads(event.get_field(EVENT_RECORD_FIELD_RAW_EVENT).decode('utf8'))
+        event_record_json = json.loads(event.get_field(EVENT_RECORD_FIELD_RAW_EVENT))
         event.set_field(EVENT_RECORD_FIELD_RAW_EVENT, json.dumps(map_to_ecs(event_record_json)))
